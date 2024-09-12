@@ -1,38 +1,39 @@
-def calcular_gastos(viajes, valor_pasaje):
+def calcular_gastos(viajes: int, valor_pasaje: float) -> float:
     """
-    Calcula el total gastado en pasajes de subte en un mes, aplicando descuentos según la cantidad de viajes realizados.
-
-    Argumentos:
-        viajes (int): La cantidad de viajes realizados en el mes.
-        valor_pasaje (float): El valor actual de un boleto.
-
-    Retorna:
-        float: El total gastado considerando los descuentos aplicables.
+    Calcula el total gastado en pasajes de subte en un mes, aplicando descuentos según la cantidad de
+    viajes realizados.
     """
-    total_gastado = valor_pasaje * viajes
     if 1 <= viajes <= 20:
-        return total_gastado
+        total_gastado = valor_pasaje * viajes
     elif 21 <= viajes <= 30:
-        return total_gastado * 0.8
+        total_gastado = valor_pasaje * 0.8 * viajes
     elif 31 <= viajes <= 40:
-        return total_gastado * 0.7
+        total_gastado = valor_pasaje * 0.7 * viajes
     else:
-        return total_gastado * 0.6
+        total_gastado = valor_pasaje * 0.6 * viajes
+
+    return round(total_gastado, 2)
 
 
-def app():
+def app() -> None:
     """
-    Función principal de la aplicación que interactúa con el usuario para calcular el total gastado en pasajes de subte.
-
-    Solicita al usuario la cantidad de viajes realizados y el valor de un boleto,
-    luego utiliza la función `calcular_gastos` para determinar el costo total con descuentos aplicables.
+    Función principal de la aplicación que interactúa con el usuario para calcular el total gastado
+    en pasajes de subte.
     """
     while True:
         try:
-            cantidad = int(input("Ingrese la cantidad de viajes realizados: "))
-            valor_pasaje = int(input("Ingresar el valor actual de un boleto: "))
+            cantidad = int(input("Ingrese la cantidad de viajes realizados en el mes: "))
+            valor_pasaje = float(input("Ingrese el valor actual de un boleto (en pesos): "))
+
+            if cantidad < 1:
+                print("La cantidad de viajes debe ser mayor a 0.")
+                continue
+
             total_gastado = calcular_gastos(cantidad, valor_pasaje)
-            print(f"El total gastado es de ${total_gastado}")
+            print(f"El total gastado es de ${total_gastado:.2f}")
             break
         except ValueError:
             print("Por favor, ingrese un número válido.")
+    return None
+
+app()
