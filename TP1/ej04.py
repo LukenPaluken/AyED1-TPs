@@ -60,9 +60,7 @@ def app() -> None:
     if status == -1:
         print("El dinero recibido es insuficiente.")
     elif status == -2:
-        print(
-            "No se puede entregar el cambio exacto con las denominaciones disponibles."
-        )
+        print("No se puede entregar el cambio exacto con las denominaciones disponibles.")
     else:
         print("\nVUELTO\n")
         for billete, cantidad in status.items():
