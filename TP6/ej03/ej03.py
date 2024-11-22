@@ -50,7 +50,6 @@ def grabar_promedio(archivo: str) -> dict:
     Returns:
         dict: Un diccionario donde las claves son los nombres de los deportes y los valores son listas
         con las alturas de los atletas para ese deporte.
-
     """
     try:
         with open(archivo, 'rt', encoding='utf-8') as file:
@@ -107,6 +106,8 @@ def mostrar_mas_altos(archivo: str) -> None:
                     if altura > promedio:
                         print("DISCIPLINAS DEPORTIVAS CUYOS ATLETAS SUPERAN LA ESTATURA PROMEDIO GENERAL\n")
                         print(f"- {disciplina}")
+            else:
+                print("No hay datos cargados.")
 
     except FileNotFoundError:
         print(f"Error. El archivo '{archivo}' no se ha encontrado.")

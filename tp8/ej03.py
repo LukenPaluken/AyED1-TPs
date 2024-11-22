@@ -1,9 +1,3 @@
-"""Desarrollar un programa que utilice una función que reciba como parámetro una
-cadena de caracteres conteniendo una dirección de correo electrónico y devuelva
-una tupla con las distintas partes que componen dicha dirección. Ejemplo:
-alguien@uade.edu.ar -> (alguien, uade, edu, ar). La función debe detectar
-formatos de fecha inválidos y devolver una tupla vacía."""
-
 import re
 
 def descomponer_email(correo: str) -> tuple:
@@ -11,7 +5,7 @@ def descomponer_email(correo: str) -> tuple:
     Descompone una dirección de correo electrónico en sus partes utilizando una expresión regular.
 
     Parameters:
-        email (str): Dirección de correo electrónico en formato válido (ejemplo: alguien@uade.edu.ar).
+        email (str): Dirección de correo electrónico en formato válido.
 
     Retorna:
         tuple: Una tupla con las partes que componen el correo electrónico 
@@ -38,7 +32,7 @@ def main():
     """
     email = input("Ingrese una dirección de correo electrónico: ").strip()
     partes = descomponer_email(email)
-    
+
     if partes:
         print(f"Las partes de la dirección son: {partes}")
     else:
