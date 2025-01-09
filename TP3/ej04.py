@@ -78,3 +78,26 @@ def menor_fabricacion_por_fabrica(fabricas: list[list[list[int]]]) -> list[int]:
     por cada fábrica en un solo día.
     """
     return [min(ventas[1] for ventas in fabrica) for fabrica in fabricas]
+
+
+def main():
+    """
+    Programa que utiliza todas las funciones.
+    """
+
+    print("Generando datos de producción de bicicletas:\n")
+    fabricas = cargar_datos()
+    print()
+    total_por_fabrica(fabricas)
+    print()
+    fabrica_mayor_produccion(fabricas)
+    print()
+    dia_mas_productivo(fabricas)
+
+    print("\nMenor cantidad de bicicletas fabricadas en un día por cada fábrica:")
+    menores = menor_fabricacion_por_fabrica(fabricas)
+    for i, menor in enumerate(menores):
+        print(f"Fábrica {i + 1}: {menor} bicicletas")
+
+
+main()
